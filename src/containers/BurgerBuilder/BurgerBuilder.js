@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
+import Aux from '../../hoc/Aux/Aux';
 import Burger from '../../components/Burger/Burger';
-import Aux from '../../hoc/Aux';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
@@ -15,8 +15,8 @@ const INGREDIENT_PRICES = {
 
 class BurgerBuilder extends Component {
   // constructor(props) {
-  //   super(props);
-  //   this.state = {...};
+  //     super(props);
+  //     this.state = {...}
   // }
   state = {
     ingredients: {
@@ -91,7 +91,7 @@ class BurgerBuilder extends Component {
     for (let key in disabledInfo) {
       disabledInfo[key] = disabledInfo[key] <= 0;
     }
-
+    // {salad: true, meat: false, ...}
     return (
       <Aux>
         <Modal
