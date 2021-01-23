@@ -8,6 +8,7 @@ class Logout extends Component {
   componentDidMount() {
     this.props.onLogout();
   }
+
   render() {
     return <Redirect to="/" />;
   }
@@ -18,4 +19,5 @@ const mapDispatchToProps = dispatch => {
     onLogout: () => dispatch(actions.logout()),
   };
 };
+
 export default connect(null, mapDispatchToProps)(Logout);

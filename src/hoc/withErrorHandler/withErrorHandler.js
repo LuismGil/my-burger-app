@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Modal from '../../components/UI/Modal/Modal';
 import Aux from '../Aux/Aux';
 
-const withErrorHandler = (WrappedComoponent, axios) => {
+const withErrorHandler = (WrappedComponent, axios) => {
   return class extends Component {
     state = {
       error: null,
@@ -14,7 +14,6 @@ const withErrorHandler = (WrappedComoponent, axios) => {
         this.setState({ error: null });
         return req;
       });
-
       this.resInterceptor = axios.interceptors.response.use(
         res => res,
         error => {
@@ -24,7 +23,6 @@ const withErrorHandler = (WrappedComoponent, axios) => {
     }
 
     componentWillUnmount() {
-      console.log('Will Unmount', this.reqInterceptor, this.resInterceptor);
       axios.interceptors.request.eject(this.reqInterceptor);
       axios.interceptors.response.eject(this.resInterceptor);
     }
@@ -42,7 +40,7 @@ const withErrorHandler = (WrappedComoponent, axios) => {
           >
             {this.state.error ? this.state.error.message : null}
           </Modal>
-          <WrappedComoponent {...this.props} />
+          <WrappedComponent {...this.props} />
         </Aux>
       );
     }
